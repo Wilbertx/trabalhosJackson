@@ -39,54 +39,7 @@ public class ExercicioUm {
       
       System.out.println("Ex. 5");
       
-      import java.util.*;
- 
-        public class Delta {
- 
-    Scanner read = new Scanner(System.in);
- 
-    int a, b, c;
-    double delta, x1, x2;
- 
-    public Delta() {
-        deltaCalculo();
-    }
- 
-    private void deltaCalculo() {
- 
-        System.out.println("Digite o valor de A, B e C respectivamente: ");
-        a = Integer.parseInt(read.next());
-        b = Integer.parseInt(read.next());
-        c = Integer.parseInt(read.next());
- 
-        delta = (b * b) + (-4 * (a * c));
- 
-        System.out.println("Delta: " + delta);
- 
-        if (delta >= 0) {
-            calculaX();
-        } else {
-            System.out.println("Delta não possui raiz!");
-            System.exit(0);
-        }
- 
-    }
- 
-    private void calculaX() {
- 
-        x1 = (double) ((-(b) + Math.sqrt(delta)) / 2 * a);
-        x2 = (double) ((-(b) - Math.sqrt(delta)) / 2 * a);
- 
-        System.out.println("x1 = " + x1);
-        System.out.println("x2 = " + x2);
- 
-    }
- 
-    public static void main(String[] args) {
-        new Delta();
-    }
- 
-}
+      
       
       
       System.out.println("Ex. 6");
@@ -106,6 +59,39 @@ public class ExercicioUm {
       double percentual = (faturamento / imposto);
       
       System.out.println(percentual + "%");
-    
+
+      System.out.println("Ex. 8");
+
+        int valor = 12;
+        
+        String msg = (valor%2)==0? "É par" : "É impar";
+        
+        System.out.println(msg);
+
+        System.out.println("Ex. 10");
+
+        String valora = "matheus";
+        String valorb = "matheus";
+
+        boolean comparar = valora.equals(valorb);
+
+        System.out.println(comparar);
+
+        System.out.println("Ex. 11");
+         
+        String bom = "3.2";
+        int ruim = (int) Double.parseDouble(bom);
+        
+        System.out.println(ruim);
+
+        System.out.println("Ex. 12");
+
+        double salario = 3580;
+        
+        String aliquota = salario <= 1903.98 ? "Isento" : salario <= 2826.65 ? "7.5%" : salario <= 3751.05 ? "15%" : salario <= 4664.68 ? "22.5%" : "27.5%";
+        
+        System.out.println(aliquota);
+        
+        System.out.println("Finalizando exercicio");
     }
 }
