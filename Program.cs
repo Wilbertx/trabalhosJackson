@@ -44,9 +44,9 @@ namespace ConsultorioOdontologico
 
         public static void Main(string[] args)
         {
-            DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, "Ortodontia");
+            /*DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, 1);
             PacienteController.InserirPaciente("Amélia da Silva", "111.111.111-11", "47 88888-8888", "amelia.silva@paciente.com", "123456", Convert.ToDateTime("1990-01-01"));
-            SalaController.IncluirSala("B135", "RaioX");
+            SalaController.IncluirSala("B135", "RaioX");*/
             //MenuPrincipal();
 
             do
@@ -55,14 +55,16 @@ namespace ConsultorioOdontologico
                 string Email = Console.ReadLine();
                 Console.WriteLine("Informe a senha: ");
                 string Senha = ReadPassword();
-                
+
                 try
                 {
                     Auth.Login(Email, Senha);
-                    if (Auth.Dentista != null) {
+                    if (Auth.Dentista != null)
+                    {
                         MenuPrincipal();
                     }
-                    if (Auth.Paciente != null) {
+                    if (Auth.Paciente != null)
+                    {
                         MenuPaciente();
                     }
                     Auth.Logout();
@@ -111,34 +113,45 @@ namespace ConsultorioOdontologico
                     default:
                         Console.WriteLine("Operação inválida");
                         break;
-                }  
-            } while(opt != 0);
+                }
+            } while (opt != 0);
         }
 
         public static void MenuPrincipal()
         {
-            Console.WriteLine(" ============= BEM VINDO ============ ");
-            Console.WriteLine("+------------------------------------+");
-            Console.WriteLine("| Operação | Descrição               |");
-            Console.WriteLine("|----------|-------------------------|");
-            Console.WriteLine("| 0        | Sair                    |");
-            Console.WriteLine("| 1        | Incluir Dentista        |");
-            Console.WriteLine("| 2        | Incluir Paciente        |");
-            Console.WriteLine("| 3        | Incluir Sala            |");
-            Console.WriteLine("| 4        | Incluir Agendamento     |");
-            Console.WriteLine("| 5        | Alterar Dentista        |");
-            Console.WriteLine("| 6        | Alterar Paciente        |");
-            Console.WriteLine("| 7        | Alterar Sala            |");
-            Console.WriteLine("| 8        | Alterar Agendamento     |");
-            Console.WriteLine("| 9        | Excluir Dentista        |");
-            Console.WriteLine("| 10       | Excluir Paciente        |");
-            Console.WriteLine("| 11       | Excluir Sala            |");
-            Console.WriteLine("| 12       | Excluir Agendamento     |");
-            Console.WriteLine("| 13       | Visualizar Dentistas    |");
-            Console.WriteLine("| 14       | Visualizar Pacientes    |");
-            Console.WriteLine("| 15       | Visualizar Salas        |");
-            Console.WriteLine("| 16       | Visualizar Agendamentos |");
-            Console.WriteLine("+------------------------------------+");
+            Console.WriteLine("<============== BEM VINDO ==============>");
+            Console.WriteLine("+---------------------------------------+");
+            Console.WriteLine("| Operação | Descrição                  |");
+            Console.WriteLine("|----------|----------------------------|");
+            Console.WriteLine("| 0        | Sair                       |"); 
+            Console.WriteLine("| 1        | Incluir Dentista           |"); 
+            Console.WriteLine("| 2        | Incluir Paciente           |"); 
+            Console.WriteLine("| 3        | Incluir Sala               |"); 
+            Console.WriteLine("| 4        | Incluir Agendamento        |"); 
+            Console.WriteLine("| 5        | Incluir Atendimento        |"); 
+            Console.WriteLine("| 6        | Incluir Especialidade      |"); 
+            Console.WriteLine("| 7        | Incluir Procedimento       |"); 
+            Console.WriteLine("| 8        | Alterar Dentista           |"); 
+            Console.WriteLine("| 9        | Alterar Paciente           |"); 
+            Console.WriteLine("| 10       | Alterar Sala               |"); 
+            Console.WriteLine("| 11       | Alterar Agendamento        |"); 
+            Console.WriteLine("| 12       | Alterar Especialidade      |"); 
+            Console.WriteLine("| 13       | Alterar Procedimento       |"); 
+            Console.WriteLine("| 14       | Excluir Dentista           |"); 
+            Console.WriteLine("| 15       | Excluir Paciente           |"); 
+            Console.WriteLine("| 16       | Excluir Sala               |"); 
+            Console.WriteLine("| 17       | Excluir Agendamento        |"); 
+            Console.WriteLine("| 18       | Excluir Atendimento        |"); 
+            Console.WriteLine("| 19       | Excluir Especialidade      |"); 
+            Console.WriteLine("| 20       | Excluir Procedimento       |"); 
+            Console.WriteLine("| 21       | Visualizar Dentistas       |"); 
+            Console.WriteLine("| 22       | Visualizar Pacientes       |"); 
+            Console.WriteLine("| 23       | Visualizar Salas           |"); 
+            Console.WriteLine("| 24       | Visualizar Agendamentos    |"); 
+            Console.WriteLine("| 25       | Visualizar Atendimentos    |"); 
+            Console.WriteLine("| 26       | Visualizar Especialidades  |"); 
+            Console.WriteLine("| 27       | Visualizar Procedimentos   |"); 
+            Console.WriteLine("+---------------------------------------+");
 
             int opt = 0;
 
@@ -153,101 +166,157 @@ namespace ConsultorioOdontologico
                 {
                     opt = 99;
                 }
-                try{
+                try
+                {
                     switch (opt)
                     {
                         case 0:
-                        {
-                            Console.WriteLine("Obrigado por utilizar o sistema!");
-                            break;
-                        }
+                            {
+                                Console.WriteLine("Obrigado por utilizar o sistema.");
+                                break;
+                            }
                         case 1:
-                        {
-                            DentistaView.InserirDentista();
-                            break;
-                        }
+                            {
+                                DentistaView.InserirDentista();
+                                break;
+                            }
                         case 2:
-                        {
-                            PacienteView.InserirPaciente();
-                            break;
-                        }
+                            {
+                                PacienteView.InserirPaciente();
+                                break;
+                            }
                         case 3:
-                        {
-                            SalaView.InserirSala();
-                            break;
-                        }
+                            {
+                                SalaView.InserirSala();
+                                break;
+                            }
                         case 4:
-                        {
-                            AgendamentoView.InserirAgendamento();
-                            break;
-                        }
+                            {
+                                AgendamentoView.InserirAgendamento();
+                                break;
+                            }
                         case 5:
-                        {
-                            DentistaView.AlterarDentista();
-                            break;
-                        }
+                            {
+                                AtendimentoView.InserirAtendimento();
+                                break;
+                            }
                         case 6:
-                        {
-                            PacienteView.AlterarPaciente();
-                            break;
-                        }
+                            {
+                                EspecialidadeView.InserirEspecialidade();
+                                break;
+                            }
                         case 7:
-                        {
-                            SalaView.AlterarSala();
-                            break;
-                        }
+                            {
+                                ProcedimentoView.InserirProcedimento();
+                                break;
+                            }
                         case 8:
-                        {
-                            AgendamentoView.AlterarAgendamento();
-                            break;
-                        }
+                            {
+                                DentistaView.AlterarDentista();
+                                break;
+                            }
                         case 9:
-                        {
-                            DentistaView.ExcluirDentista();
-                            break;
-                        }
+                            {
+                                PacienteView.AlterarPaciente();
+                                break;
+                            }
                         case 10:
-                        {
-                            PacienteView.ExcluirPaciente();
-                            break;
-                        }
+                            {
+                                SalaView.AlterarSala();
+                                break;
+                            }
                         case 11:
-                        {
-                            SalaView.ExcluirSala();
-                            break;
-                        }
+                            {
+                                AgendamentoView.AlterarAgendamento();
+                                break;
+                            }
                         case 12:
-                        {
-                            AgendamentoView.ExcluirAgendamento();
-                            break;
-                        }
+                            {
+                                EspecialidadeView.AlterarEspecialidade();
+                                break;
+                            }
                         case 13:
-                        {
-                            DentistaView.ListarDentistas();
-                            break;
-                        }
+                            {
+                                ProcedimentoView.AlterarProcedimento();
+                                break;
+                            }
                         case 14:
-                        {
-                            PacienteView.ListarPacientes();
-                            break;
-                        }
+                            {
+                                DentistaView.ExcluirDentista();
+                                break;
+                            }
                         case 15:
-                        {
-                            SalaView.ListarSalas();
-                            break;
-                        }
+                            {
+                                PacienteView.ExcluirPaciente();
+                                break;
+                            }
                         case 16:
-                        {
-                            AgendamentoView.ListarAgendamentos();
-                            break;
-                        }
+                            {
+                                SalaView.ExcluirSala();
+                                break;
+                            }
+                        case 17:
+                            {
+                                AgendamentoView.ExcluirAgendamento();
+                                break;
+                            }
+                        case 18:
+                            {
+                                AtendimentoView.ExcluirAgendamento();
+                                break;
+                            }
+                        case 19:
+                            {
+                                EspecialidadeView.ExcluirEspecialidade();
+                                break;
+                            }
+                        case 20:
+                            {
+                                ProcedimentoView.ExcluirProcedimento();
+                                break;
+                            }
+                        case 21:
+                            {
+                                DentistaView.ListarDentistas();
+                                break;
+                            }
+                        case 22:
+                            {
+                                PacienteView.ListarPacientes();
+                                break;
+                            }
+                        case 23:
+                            {
+                                SalaView.ListarSalas();
+                                break;
+                            }
+                        case 24:
+                            {
+                                AgendamentoView.ListarAgendamentos();
+                                break;
+                            }
+                        case 25:
+                            {
+                                AtendimentoView.ListarAtendimentos();
+                                break;
+                            }
+                        case 26:
+                            {
+                                EspecialidadeView.ListarEspecialidades();
+                                break;
+                            }
+                        case 27:
+                            {
+                                ProcedimentoView.ListarProcedimentos();
+                                break;
+                            }
                         default:
-                        {
-                            Console.WriteLine("Operação inválida");
-                            break;
-                        }
+                            {
+                                Console.WriteLine("Operação inválida");
+                                break;
+                            }
                     }
-                } 
+                }
                 catch (Exception err)
                 {
                     Console.WriteLine(err.Message);
